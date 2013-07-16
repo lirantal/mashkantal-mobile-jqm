@@ -1,0 +1,10 @@
+
+input[type=number]#calc_mtg_sum, 
+input[type=number]#calc_mtg_years,
+input[type=number]#calc_mtg_interest {
+	width: 80px;
+}
+
+div#calc_mtg .ui-slider-track {
+	margin-left: 120px;
+}
