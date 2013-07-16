@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <title>Mashkanton</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS Includes -->
+    <link rel="stylesheet" href="jquery.mobile-1.3.1.min.css">
+
+    <!-- JS Includes -->
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="jquery.mobile-1.3.1.min.js"></script>
+
+</head>
+<body>
+
+
+    <div data-role="page" data-id="app" id="calc_mtg_results">
+
+        <div data-role="header" data-position="fixed">
+            <a href="index.html" data-icon="delete">Reset</a>
+            <h1>Edit Contact</h1>
+            <a href="index.html" data-icon="check">Calculate</a>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            <div data-role="collapsible" data-collapsed="false" data-theme="b" data-content-theme="d">
+                <h4>Heading</h4>
+                <p>
+            asdasdasda
+            asda
+            </p>
+            <ul data-role="listview" data-inset="false">
+                    <li><a href="#">List item 1</a></li>
+                    <li><a href="#">List item 2</a></li>
+                    <li><a href="#">List item 3</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- footer -->
+        <div data-role="footer" data-position="fixed" data-id="app">
+            <!-- /navbar -->
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="a.html" data-icon="home">Main</a></li>
+                    <li><a href="c.html" data-icon="bars">Mortgage Planner</a></li>
+                    <li><a href="#calc_mtg" data-icon="grid" class="ui-btn-active ui-state-persist">Calculators</a></li>
+                </ul>
+             </div><!-- /navbar -->
+        </div><!-- /footer -->
+
+
+
+    </div>
+
+
+    <div data-role="page" data-id="app" id="calc_mtg">
+
+        <div data-role="header" data-position="fixed">
+            <a href="index.html" data-icon="delete">Reset</a>
+            <h1>Edit Contact</h1>
+            <a href="index.html" data-icon="check">Calculate</a>
+        </div><!-- /header -->
+
+        <div data-role="content">
+
+        <div>
+            <p>Mortgage Calculator</p>
+
+            <div data-role="fieldcontain">
+                <label for="calc_mtg_sum">Sum:</label>
+                <input type="range" name="calc_mtg_sum" id="calc_mtg_sum" min="0" max="1000000" value="550000" data-popup-enabled="true" data-highlight="true">
+            </div>
+
+
+
+            <div data-role="fieldcontain">
+                <label for="calc_mtg_years">Years</label>
+                <input type="range" name="calc_mtg_years" id="calc_mtg_years" min="0" max="30" value="15" data-popup-enabled="true">
+            </div>
+
+            <div data-role="fieldcontain">
+                <label for="calc_mtg_interest">Interest Rate:</label>
+                <input type="range" name="calc_mtg_interest" id="calc_mtg_interest" min="0" max="10" value="2" data-popup-enabled="true">
+            </div>
+
+            <input type="button" value="Monthly Return: 0" data-icon="delete" id="calc_button" data-theme="b">
+        </div>
+
+        </div><!-- /content -->
+
+
+        <!-- footer -->
+        <div data-role="footer" data-position="fixed" data-id="app">
+            <!-- /navbar -->
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="a.html" data-icon="home">Main</a></li>
+                    <li><a href="c.html" data-icon="bars">Mortgage Planner</a></li>
+                    <li><a href="#calc_mtg" data-icon="grid" class="ui-btn-active ui-state-persist">Calculators</a></li>
+                </ul>
+             </div><!-- /navbar -->
+        </div><!-- /footer -->
+
+
+    </div><!-- /page -->
+
+
+
+
+
+</body>
+</html>
