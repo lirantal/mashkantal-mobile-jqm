@@ -1,34 +1,8 @@
 /**
- *
- *
- *
- */
-
-/**
  * Bind to page init.
  * When working with JQM we don't bind on document .ready() but rather on pageinit.
  */
 $(document).bind('pageinit', function() {
-	// Event listener for calculate mortgage button
-	/*
-	$('#calc_mtg #calc_button').bind('click', function(f) {
-		var calc_mtg_sum = $('#calc_mtg #calc_mtg_sum').val();
-		var calc_mtg_years = $('#calc_mtg #calc_mtg_years').val();
-		var calc_mtg_interest = $('#calc_mtg #calc_mtg_interest').val();
-		
-
-		var m = calc_mtg(calc_mtg_sum, calc_mtg_years, calc_mtg_interest);
-	});
-
-
-
-	
-
-
-*/
-
-
-
 	/**
 	  * Bind to all the mortgage calculator change events
 	  *
@@ -73,8 +47,6 @@ function calc_mtg(sum, years, interest) {
 	// interest rate is expressed as monetary value and not as precent so we divide by 100.
 	// we further divide by 12 to make sure it's monthly based rate
 	var i = ((parseInt(interest) / 100) / 12);
-
-
 
 	// number of payments to make are provided in years but we make monthly payments, so multiply by 12
 	var n = (parseInt(years) * 12);
