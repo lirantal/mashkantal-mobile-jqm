@@ -19,6 +19,9 @@ $(document).bind('pageinit', function() {
 		$('#calc_button').button('refresh');
 	});
 
+	// Trigger the mortgage calculator change event so that we can show a monthly payment for the default values
+	$("#calc_mtg #calc_mtg_sum").change();
+
 });
 
 
