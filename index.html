@@ -20,6 +20,65 @@
 <body>
 
 
+
+    <div data-role="page" data-id="app" id="home">
+
+        <div data-role="header" data-position="fixed">
+            <h1>Home</h1>
+            <a href="" data-icon="refresh" class="ui-btn-right" id="refresh_dashboard">Refresh</a>
+        </div><!-- /header -->
+
+        <div data-role="content">
+
+            <div class="dashboard">
+
+                <div class="ui-bar ui-bar-c">
+                    <h3>ריבית הפריים</h3>
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <a href="#" data-role="button" data-theme="d" class="down number" id="rPrime_rate" data-mini="true">2.75%</a>
+                        <a href="#" data-role="button" data-theme="d" class="down number" id="rPrime_change" data-mini="true">-0.25</a>
+                    </div>
+                </div>
+
+                <div class="ui-bar ui-bar-c">
+                    <h3>מדד המחירים לצרכן</h3>
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <a href="#" data-role="button" data-theme="d" class="up number" id="rTzarhan_rate" data-mini="true">101.0</a>
+                        <a href="#" data-role="button" data-theme="d" class="up number" id="rTzarhan_change" data-mini="true">+0.1%</a>
+                    </div>
+                </div>
+
+                <div class="ui-bar ui-bar-c">
+                    <h3>מדד תשומות הבניה</h3>
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <a href="#" data-role="button" data-theme="d" class="up number" id="rBniya_rate" data-mini="true">104.9</a>
+                        <a href="#" data-role="button" data-theme="d" class="up number" id="rBniya_change" data-mini="true">+0.3%</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- footer -->
+        <div data-role="footer" data-position="fixed" data-id="app">
+            <!-- /navbar -->
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                    <li><a href="#calc_mtg" data-icon="grid">Calculators</a></li>
+                </ul>
+             </div><!-- /navbar -->
+        </div><!-- /footer -->
+
+
+
+    </div>
+    <!-- /home -->
+
+
+
     <div data-role="page" data-id="app" id="calc_mtg_results">
 
         <div data-role="header" data-position="fixed">
@@ -29,13 +88,36 @@
         </div><!-- /header -->
 
         <div data-role="content">
+
+            <div class="dashboard">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#" data-role="button" class="widget">ריבית פריים</a>
+                    <a href="#" data-role="button" class="widget down number">61.25%</a>
+                    <a href="#" data-role="button" class="widget down number">-0.25</a>
+                </div>
+
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#" data-role="button" class="widget">מדד <br/>תשומות הבניה</a>
+                    <a href="#" data-role="button" class="widget down number">4.25%</a>
+                    <a href="#" data-role="button" class="widget down number">+1.5%</a>
+                </div>
+
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#" data-role="button" class="widget">מדד <br/>המחירים לצרכן</a>
+                    <a href="#" data-role="button" class="widget up number">103.33</a>
+                    <a href="#" data-role="button" class="widget up number">+0.2%</a>
+                </div>
+            </div>
+
             <div data-role="collapsible" data-collapsed="false" data-theme="b" data-content-theme="d">
                 <h4>Heading</h4>
                 <p>
-            asdasdasda
-            asda
-            </p>
-            <ul data-role="listview" data-inset="false">
+                asdasdasda
+                <span class="dash">
+                1.25%
+                </span>
+                </p>
+                <ul data-role="listview" data-inset="false">
                     <li><a href="#">List item 1</a></li>
                     <li><a href="#">List item 2</a></li>
                     <li><a href="#">List item 3</a></li>
@@ -49,8 +131,7 @@
             <!-- /navbar -->
             <div data-role="navbar">
                 <ul>
-                    <li><a href="a.html" data-icon="home">Main</a></li>
-                    <li><a href="c.html" data-icon="bars">Mortgage Planner</a></li>
+                    <li><a href="#home" data-icon="home">Home</a></li>
                     <li><a href="#calc_mtg" data-icon="grid" class="ui-btn-active ui-state-persist">Calculators</a></li>
                 </ul>
              </div><!-- /navbar -->
@@ -59,6 +140,7 @@
 
 
     </div>
+    <!-- /calc_mtg_results -->
 
 
     <div data-role="page" data-id="app" id="calc_mtg">
@@ -100,8 +182,7 @@
             <!-- /navbar -->
             <div data-role="navbar">
                 <ul>
-                    <li><a href="a.html" data-icon="home">Main</a></li>
-                    <li><a href="c.html" data-icon="bars">Mortgage Planner</a></li>
+                    <li><a href="#home" data-icon="home">Home</a></li>
                     <li><a href="#calc_mtg" data-icon="grid" class="ui-btn-active ui-state-persist">Calculators</a></li>
                 </ul>
              </div><!-- /navbar -->

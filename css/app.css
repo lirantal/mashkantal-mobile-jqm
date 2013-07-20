@@ -1,4 +1,8 @@
 
+/**
+ * Mortgage Calculator page
+ * CSS for styling sliders to provide a bigger input box for numbers
+ */
 input[type=number]#calc_mtg_sum, 
 input[type=number]#calc_mtg_years,
 input[type=number]#calc_mtg_interest {
@@ -8,3 +12,34 @@ input[type=number]#calc_mtg_interest {
 div#calc_mtg .ui-slider-track {
 	margin-left: 120px;
 }
+/**/
+
+
+
+/**
+ * Dashboard Widgets
+ */
+div.dashboard {
+	text-align: center;
+}
+
+
+.widget {
+	height: 80px;
+	width: 100px;
+}
+
+.widget.number {
+	width: 100px;
+	font-weight: bold;
+	margin-left: -5px;
+}
+
+.up {
+	color: green;
+}
+
+.down {
+	color: red;
+}
+/**/
