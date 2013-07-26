@@ -28,7 +28,6 @@ $(document).on('pageinit', '#home', function() {
 		$.mobile.loading('show');
 
 		var json_URL = 'http://mashkantal.enginx.com/rates.php';
-		//$.getJSON(json_URL, null, function (result, status) {
 		$.ajax({
 			url: json_URL,
 			dataType: 'json',
@@ -190,7 +189,7 @@ function calc_mtg(sum, years, interest, consumer_index) {
 
 	// interest rate is expressed as monetary value and not as precent so we divide by 100.
 	// we further divide by 12 to make sure it's monthly based rate
-	var i = ((parseInt(interest) / 100) / 12);
+	var i = ((parseFloat(interest) / 100) / 12);
 
 
 
