@@ -138,24 +138,29 @@ $(document).on('pageinit', '#calc_mtg', function() {
 	  *
 	  */
 	// We can also bind to the slidestop event but it doesn't fire when updating the numeric field widget for the slider
-	// $("#calc_mtg #calc_mtg_sum").on( 'slidestop', function(event) { 
-	$("#calc_mtg #calc_mtg_sum, #calc_mtg #calc_mtg_years, #calc_mtg #calc_mtg_interest").on("change", function(event, ui) {  
-		var calc_mtg_sum = $('#calc_mtg #calc_mtg_sum').val();
-		var calc_mtg_years = $('#calc_mtg #calc_mtg_years').val();
-		var calc_mtg_interest = $('#calc_mtg #calc_mtg_interest').val();
-		//var calc_mtg_interest_index = $('#calc_mtg #calc_mtg_interest_index').val();
+	$("#calc_mtg_sum, #calc_mtg_years, #calc_mtg_interest").on( 'slidestop', function(event) { 
+	//$("#calc_mtg_sum, #calc_mtg_years, #calc_mtg_interest").on("change", function(event, ui) {  
+		var calc_mtg_sum = $('#calc_mtg_sum').val();
+		var calc_mtg_years = $('#calc_mtg_years').val();
+		var calc_mtg_interest = $('#calc_mtg_interest').val();
 		
-		//var M = calc_mtg(calc_mtg_sum, calc_mtg_years, calc_mtg_interest, calc_mtg_interest_index);
-		var M = calc_mtg(calc_mtg_sum, calc_mtg_years, calc_mtg_interest, 0);
-		$('#calc_button').prop('value', 'החזר חודשי: ' + M);
-		$('#calc_button').button('refresh');
+		var M = calc_mtg(parseInt(calc_mtg_sum), parseInt(calc_mtg_years), parseFloat(calc_mtg_interest), 0);
+		$('#calc_button .ui-btn-text').text('החזר חודשי: ' + M);
+	});
+
+	//$("#calc_mtg_sum, #calc_mtg_years, #calc_mtg_interest").on( 'slidestop', function(event) { 
+	$("#calc_mtg_sum, #calc_mtg_years, #calc_mtg_interest").on("change", function(event, ui) {  
+		var calc_mtg_sum = $('#calc_mtg_sum').val();
+		var calc_mtg_years = $('#calc_mtg_years').val();
+		var calc_mtg_interest = $('#calc_mtg_interest').val();
+		
+		var M = calc_mtg(parseInt(calc_mtg_sum), parseInt(calc_mtg_years), parseFloat(calc_mtg_interest), 0);
+		$('#calc_button .ui-btn-text').text('החזר חודשי: ' + M);
 	});
 
 	// Trigger the change() method to load default settings
-	// @TODO fix issues when this item isn't available
+	// @TODO fix issues when this item isn't availableinterest
 	$("#calc_mtg #calc_mtg_sum").change();
-
-//});
 });
 
 
@@ -176,8 +181,12 @@ $(document).on('pageinit', '#calc_mtg', function() {
  */
 function calc_mtg(sum, years, interest, consumer_index) {
 
-	// We don't allow division by 0
-	if (((1+interest)^n-1) == 0)
+	// Make sure all parameters are valid numbers, otherwise don't proceed
+	if (!is_valid_number(sum) || !is_valid_number(years) || !is_valid_number(interest))
+	 	return 0;
+
+	// Negative interest is a fairy tale
+	if (interest < 0)
 		return 0;
 
 	// Monthly Payment
@@ -191,13 +200,17 @@ function calc_mtg(sum, years, interest, consumer_index) {
 	// we further divide by 12 to make sure it's monthly based rate
 	var i = ((parseFloat(interest) / 100) / 12);
 
-
-
 	// number of payments to make are provided in years but we make monthly payments, so multiply by 12
 	var n = (Y * 12);
 
 	var term = Math.pow((1+i),n);
 
+	// We don't allow division by 0
+	if (((1+interest)^n-1) == 0)
+		return 0;
+
+	if ((term-1) == 0)
+		return 0;
 
 	M = P * ( (i*term)/(term-1) );
 
@@ -213,5 +226,18 @@ function calc_mtg(sum, years, interest, consumer_index) {
 		M = (M * i_effective);
 	}
 
+	if (isNaN(M))
+		return 0;
+
 	return Math.floor(M);
+}
+
+
+/**
+ * Test if n is a valid number
+ * @param integer n 
+ * @return bool 
+ */
+function is_valid_number(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
 }
